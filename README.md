@@ -28,6 +28,18 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ## Development
 
+### Set Up CRUD Endpoints
+ - `GET /api/features/:gameId`
+  - returns all features for a specific game
+ - `POST /api/features/`
+  - adds more features to the database
+ - `PUT /api/features/:gameId`
+  - updates a specific games features
+ - `DELETE /api/features/:gameId`
+  - removes the features for a specific game
+
+These endpoints do not actually function as it was not required to for this project.
+
 ### Installing Dependencies
 
 From within the root directory:
