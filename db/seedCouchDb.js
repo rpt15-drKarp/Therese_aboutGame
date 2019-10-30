@@ -43,7 +43,7 @@ const makeBatch = (num) => {
       gameId: (i + 1 + (success * num)),
       aboutHeader: faker.lorem.sentence(),
       aboutBody: faker.lorem.paragraph(),
-      featureTitle: faker.loremm.sentence(),
+      featureTitle: faker.lorem.sentence(),
       features: faker.lorem.paragraphs()
     });
   }
