@@ -2,7 +2,6 @@ node_modules
 
 newrelic.js
 newrelic_agent.log
-public/bundle.js
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
