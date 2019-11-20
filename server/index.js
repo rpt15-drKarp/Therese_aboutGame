@@ -2,7 +2,7 @@ require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 // const {db, aboutGameFeatures} = require('../db/index.js');
-const db = require('../db/mysqlConfig.js');
+const db = require('../db/mysql/mysqlConfig.js');
 
 const app = express();
 
