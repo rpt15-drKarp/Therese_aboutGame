@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Features = (props) => {
-  console.log('props features:', props.features);
   var mappedList = props.features.map((elem, i, j) => {
     return (
       <li key={i}>
@@ -15,9 +14,9 @@ const Features = (props) => {
     <div>
     <strong className='featuresHeader'> Features </strong>
       <ul>
-        
+
         <div > {mappedList}</div>
-        
+
       </ul>
       </div>
 
