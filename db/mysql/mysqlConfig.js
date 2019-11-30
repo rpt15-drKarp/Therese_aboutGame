@@ -2,7 +2,7 @@ const mysql = require('mysql');
 const util = require('util');
 
 const pool = mysql.createPool({
-  host: 'ec2-13-57-40-50.us-west-1.compute.amazonaws.com',
+  host: 'ec2-13-57-206-123.us-west-1.compute.amazonaws.com',
   user: 'root',
   database: 'aboutGame',
   connectTimeout: 30000
