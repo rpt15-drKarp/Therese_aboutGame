@@ -3,7 +3,8 @@ const util = require('util');
 
 const pool = mysql.createPool({
   host: 'ec2-13-57-206-123.us-west-1.compute.amazonaws.com',
-  user: 'root',
+  user: 'sdc',
+  password: 'password',
   database: 'aboutGame',
   connectTimeout: 30000
 });
@@ -11,13 +12,16 @@ const pool = mysql.createPool({
 pool.getConnection((err, connection) => {
   if (err) {
     if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-      console.error('MySQL database connection was closed.')
+      console.error('MySQL database connection was closed.');
     }
     if (err.code === 'ER_CON_COUNT_ERROR') {
-      console.error('MySQL database has too many connections.')
+      console.error('MySQL database has too many connections.');
     }
     if (err.code === 'ECONNREFUSED') {
-      console.error('MySQL database connection was refused.')
+      console.error('MySQL database connection was refused.');
+    }
+    if (err) {
+      console.error('This error: ', err);
     }
   } else {
     console.log('connected to mySQL')
