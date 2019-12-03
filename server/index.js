@@ -3,11 +3,19 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // const {db, aboutGameFeatures} = require('../db/index.js');
 const db = require('../db/mysql/mysqlConfig.js');
+const compression = require('compression');
 
 const app = express();
 
+app.get('*js', (req, res, next) => {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
 app.use('/', express.static(__dirname + '/../public'));
 app.use('/:gameId', express.static(__dirname + '/../public'));
+app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
