@@ -1,7 +1,7 @@
 {
   "name": "josh_about_game",
   "version": "1.0.0",
-  "description": "> A clone of the web app, Steam and its page for the Stardew Valley game.",
+  "description": "A clone of the web app, Steam and its page for the Stardew Valley game.",
   "main": "webpack.config.js",
   "scripts": {
     "test": "jest",
