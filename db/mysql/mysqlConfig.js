@@ -2,11 +2,14 @@ const mysql = require('mysql');
 const util = require('util');
 
 const pool = mysql.createPool({
+  connectionLimit: 1000,
+  connectTimeout: 60 * 60 * 1000,
+  acquireTimeout: 60 * 60 *1000,
+  timeout: 60 * 60 * 1000,
   host: 'ec2-13-57-206-123.us-west-1.compute.amazonaws.com',
   user: 'sdc',
   password: 'password',
-  database: 'aboutGame',
-  connectTimeout: 30000
+  database: 'aboutGame'
 });
 
 pool.getConnection((err, connection) => {
