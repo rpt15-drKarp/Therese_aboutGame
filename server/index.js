@@ -22,14 +22,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // });
 
 app.get(`/api/features/:gameId`, (req, res) => {
-  db.pool.query(`SELECT * FROM about WHERE (gameId = ${req.params.gameId})`, (err, data) => {
-    connection.release();
-    if (err) {
-      console.error(err);
-    } else {
-      return data;
-    }
-  }).then((game) => {
+  db.pool.query(`SELECT * FROM about WHERE (gameId = ${req.params.gameId})`
+  // , (err, data) => {
+  //   if (err) {
+  //     console.error(err);
+  //   } else {
+  //     return data;
+  //   }
+  // }
+  ).then((game) => {
     res.status(200);
     res.send(game);
   }).catch((err) => {
