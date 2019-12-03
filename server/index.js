@@ -46,16 +46,22 @@ app.get(`/api/features/:gameId`, (req, res) => {
   // });
 });
 
-// app.post('/api/features/', (req, res) => {
-//   db.save(req.body).then((result) => {
-//     res.status(201);
-//     res.set('Location', `/api/overview/${result.game_id}`);
-//     res.send('Game features created');
-//   }).catch((err) => {
-//     res.status(500);
-//     res.send('Unable to save to database: ', err);
-//   });
-// });
+app.post('/api/features/', (req, res) => {
+  db.pool.query(`INSERT INTO about (aboutHeader, aboutBody, featureTitle, features) VALUES (${req.body.aboutHeader}, ${req.body.aboutBody}, ${req.body.featureTitle}, ${req.body.features})`).then((success) => {
+    res.sendStatus(201);
+  }).catch((err) => {
+    res.sendStatus(404);
+    console.error(err);
+  });
+  // db.save(req.body).then((result) => {
+  //   res.status(201);
+  //   res.set('Location', `/api/overview/${result.game_id}`);
+  //   res.send('Game features created');
+  // }).catch((err) => {
+  //   res.status(500);
+  //   res.send('Unable to save to database: ', err);
+  // });
+});
 
 // app.put(`/api/features/:gameId`, (req, res) => {
 //   db.update(req.params.gameId, req.body).then((results) => {
