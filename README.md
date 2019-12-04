@@ -1,4 +1,4 @@
-# RPT15 - FEC - Tabata Yoga
+# RPT15 - SDC - Dr. Karp
 
 > A clone of the web app, Steam, and its page for the Stardew Valley game.
 
