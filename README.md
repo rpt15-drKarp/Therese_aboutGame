@@ -2,9 +2,6 @@
 
 > A clone of the web app, Steam, and its page for the Stardew Valley game.
 
-## Table of Contents
-  1. [CRUD Endpoints](#1-set-up-crud-endpoints)
-
 ## Set Up CRUD Endpoints
  - `GET /api/features/:gameId`
     - returns all features for a specific game
