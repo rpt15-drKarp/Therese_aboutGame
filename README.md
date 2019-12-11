@@ -12,14 +12,12 @@
  - `DELETE /api/features/:gameId`
     - removes the features for a specific game
 
-These endpoints do not actually function as it was not required to for this project.
-
 ## Database
 
   * MySQL
   * CouchDB
 
-  I chose mysql as the database for this service.
+  I chose MySQL as the database for this service. I want to become more familiar and comfortable with using it, since it is a popular database. The syntax that MySQL uses is similar to some other databases, such as
 
 ## Deployed
 
