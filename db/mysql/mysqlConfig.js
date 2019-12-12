@@ -36,23 +36,10 @@ pool.getConnection((err, connection) => {
   return;
 });
 
-// const connection = mysql.createConnection({
-//   user: 'root',
-//   database: 'aboutGame'
-// });
-
-// connection.query('SET GLOBAL connect_timeout=30000');
-// pool.query('SET GLOBAL connect_timeout=30000');
-
 pool.query = util.promisify(pool.query);
-// connection.query = util.promisify(connection.query);
 
 module.exports = {
   pool
 };
 
-// module.exports = {
-//   connection
-// }
-
-// mysql -u root < db/schema.sql
+// mysql -u root < db/mysql/schema.sql

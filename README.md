@@ -17,7 +17,7 @@
   * MySQL
   * CouchDB
 
-  I chose MySQL as the database for this service. I want to become more familiar and comfortable with using it, since it is a popular database. The syntax that MySQL uses is similar to some other databases, such as
+  I chose MySQL as the database for this service. I want to become more familiar and comfortable with using it, since it is a popular database. The syntax that MySQL uses is also similar to some other relational databases, such as PostgreSQL, so becoming more familiar and confident in it would be beneficial for learning how to use other databases as well.
 
 ## Deployed
 
