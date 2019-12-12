@@ -86,13 +86,13 @@ app.post('/api/features/', (req, res) => {
 app.put(`/api/features/:gameId`, (req, res) => {
   var query;
   if (req.body.aboutHeader) {
-    query = `UPDATE about SET (aboutHeader = ${req.body.aboutHeader}) WHERE (gameId = ${req.params.gameId})`;
+    query = `UPDATE about SET aboutHeader = ${req.body.aboutHeader} WHERE (gameId = ${req.params.gameId})`;
   } else if (req.body.aboutBody) {
-    query = `UPDATE about SET (aboutBody = ${req.body.aboutBody}) WHERE (gameId = ${req.params.gameId})`;
+    query = `UPDATE about SET aboutBody = ${req.body.aboutBody} WHERE (gameId = ${req.params.gameId})`;
   } else if (req.body.featureTitle) {
-    query = `UPDATE about SET (featureTitle = ${req.body.featureTitle}) WHERE (gameId = ${req.params.gameId})`;
+    query = `UPDATE about SET featureTitle = ${req.body.featureTitle} WHERE (gameId = ${req.params.gameId})`;
   } else if (req.body.features) {
-    query = `UPDATE about SET (features = ${req.body.features}) WHERE (gameId = ${req.params.gameId})`;
+    query = `UPDATE about SET features = ${req.body.features} WHERE (gameId = ${req.params.gameId})`;
   }
   db.pool.query(query).then((success) => {
     res.sendStatus(201);
