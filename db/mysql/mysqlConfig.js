@@ -43,3 +43,5 @@ module.exports = {
 };
 
 // mysql -u root < db/mysql/schema.sql
+// mysql -h %endpoint% -u dbadmin --password=db-pass-2020 -f koel < koel.sql
+// mysql -h ec2-54-153-113-85.us-west-1.compute.amazonaws.com -u sdc --password=password < db/mysql/schema.sql
