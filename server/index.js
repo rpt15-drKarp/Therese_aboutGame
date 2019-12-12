@@ -4,6 +4,12 @@ const bodyParser = require('body-parser');
 // const {db, aboutGameFeatures} = require('../db/index.js');
 const db = require('../db/mysql/mysqlConfig.js');
 const compression = require('compression');
+const redis = require('redis');
+var redisClient = redis.createClient();
+
+redisClient.on("error", (err) => {
+  console.log("Error connecting to redis: " + err);
+});
 
 const app = express();
 
@@ -29,14 +35,27 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //   });
 // });
 
-app.get(`/api/features/:gameId`, (req, res) => {
-  db.pool.query(`SELECT * FROM about WHERE (gameId = ${req.params.gameId})`
-  ).then((game) => {
-    res.status(200);
-    res.send(game);
-  }).catch((err) => {
-    res.sendStatus(404);
-    console.error(err);
+app.get(`/api/features/:gameId`, async (req, res) => {
+  redisClient.get(req.params.gameId, (err, redisResult) => {
+    if (redisResult) {
+      res.status(200);
+      res.send(redisResult);
+    } else {
+      if (err) {
+        throw(err);
+      }
+
+      db.pool.query(`SELECT * FROM about WHERE (gameId = ${req.params.gameId})`
+      ).then((game) => {
+        let result = JSON.stringify(game);
+        redisClient.set(req.params.gameId, result, redis.print);
+        res.status(200);
+        res.send(game);
+      }).catch((err) => {
+        res.sendStatus(404);
+        console.error(err);
+      });
+    }
   });
   // db.retrieve(req.params.gameId).then((game) => {
   //   res.status(200);
