@@ -92,7 +92,7 @@ app.delete(`/api/features/:gameId`, (req, res) => {
   });
 });
 
-const port = 3306;
+const port = 3006;
 app.listen(port, () => {
   console.log(`App listening on ${port}`);
 });
